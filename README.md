@@ -60,7 +60,7 @@ Always Mode: Exiting scope.
 #include <scope>
 std::scope_exit scopeExit = [] { std::cout << "Cleanup on scope exit\n"; };
 ```
-**std::scope_failure (C++23)**: Executes a cleanup action only when the scope exits due to an exception.
+**std::scope_failure (C++23)**: Executes a cleanup action only when the scope exits due to an exception. <br>
 **std::scope_success (C++23**): Executes a cleanup action only when the scope exits without an exception. <br>
 It is highly recommended that you use the alternatives provided by `C++23`. It is generally recommended because it avoids the task of using this external implementation.
 * **GSL (gsl::final_action)**: Provided by the Guideline Support Library, offering `final_action` for cleanup.
@@ -79,8 +79,8 @@ It is highly recommended that you use the alternatives provided by `C++23`. It i
 
 ---
 ## License
-This library is provided as-is under an CC0 license. See CC0 for more information. <br>
-TL;dr: See the `LICENSE` file, GitHub provides you a TL;dr. <br>
+This library is provided as-is under an CC0 license. <br>
+See the `LICENSE` file. <br>
 
 ---
 ## Acknowledgments
