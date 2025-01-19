@@ -1,5 +1,4 @@
 #pragma once
-#if !defined(__cpp_lib_scope_exit) || __cpp_lib_scope_exit < 202300L
 #include <exception>
 #include <functional>
 
@@ -55,4 +54,3 @@ struct MakeDeferObj {
         return Defer<F>(mode, std::forward<F>(fn));
     }
 };
-#endif // !__cpp_lib_scope_exit
