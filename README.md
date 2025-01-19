@@ -6,9 +6,9 @@ A lightweight, header-only implementation that runs specific actions when the sc
 ## Features
 * Automatically run cleanup code on exiting a scope.
 * **Conditional Execution**:
-* * **Always* Mode: Executes **regardless** of scope outcome.
-* * **Failure** Mode: Executes only if the scope exits due to an **exception**.
-* * **Success** Mode: Executes only if the scope exits **without exceptions**.
+  * **Always** Mode: Executes **regardless** of scope outcome.
+  * **Failure** Mode: Executes only if the scope exits due to an **exception**.
+  * **Success** Mode: Executes only if the scope exits **without exceptions**.
 * Macros for Simplicity: Use `DEFER`, `DEFER_ON_FAILURE`, and `DEFER_ON_SUCCESS` for concise syntax.
 
 ---
