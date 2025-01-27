@@ -1,6 +1,6 @@
 # 🧹 defer - C++ Implementation of Golang's defer Keyword
 Tiny C++ implementation of golang `defer` keyword. <br>
-A lightweight, header-only implementation that runs specific actions when the scope exits similar to the `defer` keyword in go, with optional execution based on success or failure inside that scope. This library emulates the functionality of `std::scope_exit` and its variants for the projects that utilize C++ versions before the C++23 projects. 
+A lightweight, header-only implementation that runs specific actions when the scope exits similar to the `defer` keyword in go, with optional execution based on success or failure inside that scope. This library emulates the functionality of `std::scope_exit` and its variants for the projects that utilize C++ versions before the C++23. 
 
 ---
 ## 🌟 **Features**
