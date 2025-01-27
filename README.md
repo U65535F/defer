@@ -62,17 +62,17 @@ std::scope_exit scopeExit = [] { std::cout << "Cleanup on scope exit\n"; };
 ```
 **std::scope_failure (C++23)**: Executes a cleanup action only when the scope exits due to an exception. <br>
 **std::scope_success (C++23**): Executes a cleanup action only when the scope exits without an exception. <br>
-It is highly recommended that you use the alternatives provided by `C++23`. It is generally recommended because it avoids the task of using this external implementation.
+It is highly recommended that you use the alternatives provided by `C++23` because it avoids the task of using this external implementation.
 * **GSL (gsl::final_action)**: Provided by the Guideline Support Library, offering `final_action` for cleanup.
 
 ---
 ## ⚠️ **Non-Working Functionality**
 * **Exception Safety in Lambdas**: The implementation assumes the user-provided lambda functions are exception-safe.
-* **No RAII Replacement**: While this implementation provides cleanup, it does not serve as a replacement for RAII patterns in C++.
+* **No RAII Replacement**: While this implementation provides cleanup, it does not serve as a replacement for RAII (SBRM) patterns in C++.
 * **Limited to Lambda Syntax**: The macros only support in-scope lambdas and cannot directly take reusable functions.
 
 ---
-## 💡 **Why Use This Library?**
+## 💡 **Why Use This Implementation?**
 * **Pre-C++23 Compatibility**: Enables scoped cleanup in projects targeting older standards.
 * **Simple and Lightweight**: Minimal overhead compared to full-featured libraries like GSL.
 * **Flexible Modes**: Tailor cleanup actions to specific scope outcomes.
