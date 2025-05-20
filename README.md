@@ -64,6 +64,29 @@ std::scope_exit scopeExit = [] { std::cout << "Cleanup on scope exit\n"; };
 **std::scope_success (C++23**): Executes a cleanup action only when the scope exits without an exception. <br>
 It is highly recommended that you use the alternatives provided by `C++23` because it avoids the task of using this external implementation.
 * **GSL (gsl::final_action)**: Provided by the Guideline Support Library, offering `final_action` for cleanup.
+* **Do while loops**: Do while loops for cleanup too. Check this silly code snippet <br>
+```c
+char* buffer;
+unsigned char* buffer2;
+do {
+  buffer = malloc(128);
+  buffer2 = calloc(256, sizeof unsigned char);
+  Error e = foo();
+  if (e.HasError) {
+   break;
+  }
+  e = bar();
+  if (e.HasError) {
+   break;
+  }
+  printf("foo & bar were successful. yay!\n");
+} while (false);
+if (buffer) free(buffer);
+if (buffer2) free(buffer2);
+buffer = NULL; buffer2 = NULL; // we don't like dangling pointers, do we? #NoUAFBugs
+```
+Do while loops execute the code once no matter what the `while` takes (that's the reason it's below the loop code). <br>
+`while(false)` will make sure that the code doesn't get executed again. 
 
 ---
 ## ⚠️ **Non-Working Functionality**
