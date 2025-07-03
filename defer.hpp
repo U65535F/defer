@@ -9,6 +9,10 @@
 #define DEFER_ON_FAILURE auto DEFER_CONCAT(deferFailure_, __COUNTER__) = MakeDeferObj{DeferMode::OnFailure} += [&]()
 #define DEFER_ON_SUCCESS auto DEFER_CONCAT(deferSuccess_, __COUNTER__) = MakeDeferObj{DeferMode::OnSuccess} += [&]()
 
+#define defer DEFER
+#define defer_on_failure DEFER_ON_FAILURE 
+#define defer_on_success DEFER_ON_SUCCESS 
+
 enum class DeferMode {
     Always,
     OnFailure,
