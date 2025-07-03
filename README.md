@@ -9,7 +9,6 @@ A lightweight, header-only implementation that runs specific actions when the sc
   * **Always** Mode: Executes **regardless** of scope outcome.
   * **Failure** Mode: Executes only if the scope exits due to an **exception**.
   * **Success** Mode: Executes only if the scope exits **without exceptions**.
-* Macros for Simplicity: Use `DEFER`, `DEFER_ON_FAILURE`, and `DEFER_ON_SUCCESS` for concise syntax.
 
 ---
 ## **Usage**
@@ -47,6 +46,7 @@ Caught an exception.
 Failure Mode: Exception occurred.
 Always Mode: Exiting scope.
 ```
+You can also use lower-case macros i.e. `defer`, `defer_on_success`, and `defer_on_failure` too.
 
 ---
 ## **Minimum Requirements**
@@ -79,7 +79,7 @@ buffer = NULL; buffer2 = NULL; // we don't like dangling pointers, do we? #NoUAF
 ```
 Do while loops execute the code once no matter what the `while` takes (that's the reason it's below the loop code). <br>
 `while(false)` will make sure that the code doesn't get executed again. 
-* **std::scope_exit (experimental TS)**: A experimental utility (still not a part of C++ standard, I hope it gets standardized soon) that provides similar functionality but is unavailable in earlier C++ versions.
+* **std::scope_exit (experimental TS)**: A experimental utility (still not a part of C++ standard, I hope it gets standardized soon) that provides similar functionality.
 ```cpp
 #include <scope>
 std::scope_exit scopeExit = [] { std::cout << "Cleanup on scope exit\n"; };
@@ -127,4 +127,4 @@ See the `LICENSE` file. <br>
 
 ---
 ## Acknowledgments
-Inspired by the `defer` keyword in Go and `std::scope_exit` family introduced in C++23 and similar concepts in other programming languages.
+Inspired by the `defer` keyword in Go and `std::scope_exit` family introduced as an experimental feature (still not standardized) and similar concepts in other programming languages.
