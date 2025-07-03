@@ -1,9 +1,9 @@
-# 🧹 defer - C++ Implementation of Golang's defer Keyword
+# defer - C++ Implementation of Golang's defer Keyword
 Tiny C++ implementation of golang `defer` keyword. <br>
-A lightweight, header-only implementation that runs specific actions when the scope exits similar to the `defer` keyword in go, with optional execution based on success or failure inside that scope. This library emulates the functionality of `std::scope_exit` and its variants for the projects that utilize C++ versions before the C++23. 
+A lightweight, header-only implementation that runs specific actions when the scope exits similar to the `defer` keyword in go, with optional execution based on success or failure inside that scope. This library emulates the functionality of `std::scope_exit` and its variants.
 
 ---
-## 🌟 **Features**
+## **Features**
 * Automatically run cleanup code on exiting a scope.
 * **Conditional Execution**:
   * **Always** Mode: Executes **regardless** of scope outcome.
@@ -12,7 +12,7 @@ A lightweight, header-only implementation that runs specific actions when the sc
 * Macros for Simplicity: Use `DEFER`, `DEFER_ON_FAILURE`, and `DEFER_ON_SUCCESS` for concise syntax.
 
 ---
-## ⚡ **Usage**
+## **Usage**
 Include the header file in your project:
 ```cpp
 #include "defer.h"
@@ -49,20 +49,12 @@ Always Mode: Exiting scope.
 ```
 
 ---
-## 📋 **Minimum Requirements**
+## **Minimum Requirements**
 * **C++ Version**: C++11 or above.
 * **Dependencies**: Standard library components (`<functional>`, `<exception>`).
 
 ---
-## 🔄 **Alternatives**
-* **std::scope_exit (C++23)**: A standard utility that provides similar functionality but is unavailable in earlier C++ versions.
-```cpp
-#include <scope>
-std::scope_exit scopeExit = [] { std::cout << "Cleanup on scope exit\n"; };
-```
-**std::scope_failure (C++23)**: Executes a cleanup action only when the scope exits due to an exception. <br>
-**std::scope_success (C++23**): Executes a cleanup action only when the scope exits without an exception. <br>
-It is highly recommended that you use the alternatives provided by `C++23` because it avoids the task of using this external implementation.
+## **Alternatives**
 * **GSL (gsl::final_action)**: Provided by the Guideline Support Library, offering `final_action` for cleanup.
 * **Do while loops**: Do while loops for cleanup too. Check this silly code snippet <br>
 ```c
@@ -87,21 +79,27 @@ buffer = NULL; buffer2 = NULL; // we don't like dangling pointers, do we? #NoUAF
 ```
 Do while loops execute the code once no matter what the `while` takes (that's the reason it's below the loop code). <br>
 `while(false)` will make sure that the code doesn't get executed again. 
+* **std::scope_exit (experimental TS)**: A experimental utility (still not a part of C++ standard, I hope it gets standardized soon) that provides similar functionality but is unavailable in earlier C++ versions.
+```cpp
+#include <scope>
+std::scope_exit scopeExit = [] { std::cout << "Cleanup on scope exit\n"; };
+```
+**std::scope_failure (experimental TS)**: Executes a cleanup action only when the scope exits due to an exception. <br>
+**std::scope_success (experimental TS)**: Executes a cleanup action only when the scope exits without an exception. <br>
 
 ---
-## ⚠️ **Non-Working Functionality**
+## **Non-Working Functionality**
 * **Exception Safety in Lambdas**: The implementation assumes the user-provided lambda functions are exception-safe.
 * **No RAII Replacement**: While this implementation provides cleanup, it does not serve as a replacement for RAII (SBRM) patterns in C++.
 * **Limited to Lambda Syntax**: The macros only support in-scope lambdas and cannot directly take reusable functions.
 
 ---
-## 💡 **Why Use This Implementation?**
-* **Pre-C++23 Compatibility**: Enables scoped cleanup in projects targeting older standards.
+## **Why Use This Implementation?**
 * **Simple and Lightweight**: Minimal overhead compared to full-featured libraries like GSL.
 * **Flexible Modes**: Tailor cleanup actions to specific scope outcomes.
 
 ---
-## 🤝 **Contributing**
+## **Contributing**
 We welcome all the contributions to improve this tiny implementation! <br>
 You can help by submitting issues, enhancements, or pull requests.
 
@@ -116,14 +114,14 @@ Before contributing, please ensure the following:
 * All tests are passing.
 ---
 
-## 🛠️ Issues
-Have any issues or bugs to report? Please use the GitHub issues tracker to report any problems or request new features. <br>
+## Issues
+Have any issues or bugs to report? Please use the GitHub issues to report any problems or request new features. <br>
 1. Visit the Issues section.
 2. Provide a description of the problem or feature request.
 I'll try my best to help you.
 
 ---
-## 📝 License
+## License
 This library is provided as-is under an **CC0** license. <br>
 See the `LICENSE` file. <br>
 
